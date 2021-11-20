@@ -14,7 +14,7 @@ export const LocationList = () => {
 
     useEffect(
         () => {
-            fetch("http://localhost:8088/Products")
+            fetch("http://localhost:8088/Locations")
                 .then(res => res.json())
                 .then(
                     (locationArray) => { setLocations(locationArray) }
@@ -25,17 +25,7 @@ export const LocationList = () => {
 
     //below we are using useEffect to to filter down the locations.length to display the updateMessages function to render the coresponding messages below only if the criteria is true.
     // this creates a boolean?
-    useEffect(
-        () => {
-            if (locations.length === 1) {
-                updateMessages("You have 1 location")
-            }
-            else {
-                updateMessages(`You have ${locations.length} locations`)
-            }
-        },
-        [locations]
-    )
+   
 
     // Returning a div that displays a string of totalLocationMessage followed by a map array method that will return a locationObj.name
     // we do this by way of the key location--locationObj.id interpullated to find the locationObj.name wraped in a p tab for styling purposes
@@ -43,9 +33,8 @@ export const LocationList = () => {
         <>
             <div>{totalLocationMessage}</div>
             {
-                locations.map(
-                    (locationObj) => {
-                        return <p key={`location--${locationObj.id}`}>{locationObj.adress}</p>
+                locations.map((locationObj) => {
+                        return <p key={`location--${locationObj.id}`}>{locationObj.address}</p>
                     }
                 )
             }
