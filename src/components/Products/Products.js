@@ -14,10 +14,10 @@ export const ProductList = () => {
 
     useEffect(
         () => {
-            fetch("http://localhost:8088/Products")
+            fetch("http://localhost:8088/products")
                 .then(res => res.json())
                 .then(
-                    (productArray) => { setProducts(productArray) }
+                     setProducts
                 )
         },
         []
@@ -34,10 +34,13 @@ export const ProductList = () => {
             <div>{totalProductMessage}</div>
             {
                 products.map((productObj) => {
-                        return <p key={`productType--${productObj.id}`}> we have {productObj.candy} in stock and the cost of each is {productObj.price}. units are avalible</p>;
+                        return <p key={`productType--${productObj.id}`}> We have {productObj.type} in stock and the cost of each is {productObj.price}. units are available</p>;
                     }
                 )
             }
         </>
     )
 }
+
+
+// expanded product and type http://localhost:8088/products?_expand=productType
