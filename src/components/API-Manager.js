@@ -25,8 +25,9 @@ export const getAllPurchases =() => {
     .then(res => res.json())
 }
 
-export const getProductsByLocationId = (locationId) => {
+export const getProductByLocationId = (locationId) => {
     return fetch(`http://localhost:8088/productLocations?productId=${locationId}&_expand=location&_expand=product`)
+    .then(res => res.json())
 }
 export const getProductLocationsByProductId = (productId) => {
     return fetch(`http://localhost:8088/productLocations?productId=${productId}&_expand=location&_expand=product`)
@@ -35,6 +36,7 @@ export const getProductLocationsByProductId = (productId) => {
 
 export const getPurchasesByCurrentCustomer = (currentCustomer) => {
     return fetch(`http://localhost:8088/purchases?customerId=${currentCustomer}&_expand=productLocation`)
+    .then(res => res.json())
 }
 
 export const getCustomerPurchases = (customerId) => {

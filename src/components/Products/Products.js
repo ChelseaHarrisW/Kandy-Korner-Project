@@ -14,7 +14,7 @@ export const ProductList = () => {
         () => {
             getAllProducts()
                 .then(setProducts)
-                
+               
         },
         []
     )
