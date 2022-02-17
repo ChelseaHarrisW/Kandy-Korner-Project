@@ -34,7 +34,9 @@ export const LocationList = () => {
             <div>{totalLocationMessage}</div>
             {
                 locations.map((locationObj) => {
-                        return <p key={`location--${locationObj.id}`}>{locationObj.address}</p>
+    
+                        return( <div key={`location--${locationObj.id}`}> Our {locationObj.address} Location is a beautiful {locationObj.size} building to sute all of your Kandy needs. </div>)
+                        
                     }
                 )
             }
